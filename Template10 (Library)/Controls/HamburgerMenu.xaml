@@ -27,7 +27,7 @@
                 </Converters:ValueWhenConverter.Otherwise>
             </Converters:ValueWhenConverter>
 
-            <Style x:Key="HamburgerButtonStyle" TargetType="Button">
+            <Style x:Key="DefaultHamburgerButtonStyle" TargetType="Button">
                 <Setter Property="TabIndex" Value="1" />
                 <Setter Property="Height" Value="48" />
                 <Setter Property="Width" Value="48" />
@@ -80,6 +80,168 @@
                 <Setter Property="Width" Value="48" />
             </Style>
 
+            <ControlTemplate x:Key="DefaultNavToggleButtonControlTemplate"
+                             TargetType="ToggleButton">
+                <Grid x:Name="RootGrid"
+                      Width="{Binding PaneWidth, ElementName=ThisPage}"
+                      Background="Transparent">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                    <Setter Target="Indicator.Visibility"
+                                            Value="Visible" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="CheckedPointerOver">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                    <Setter Target="Indicator.Visibility"
+                                            Value="Visible" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="CheckedPressed">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                    <Setter Target="Indicator.Visibility"
+                                            Value="Visible" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="CheckedDisabled">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                    <Setter Target="Indicator.Visibility"
+                                            Value="Visible" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="DimGray" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Indeterminate" />
+                            <VisualState x:Name="IndeterminatePointerOver" />
+                            <VisualState x:Name="IndeterminatePressed" />
+                            <VisualState x:Name="IndeterminateDisabled" />
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <ContentPresenter x:Name="ContentPresenter"
+                                      Content="{Binding Content}" />
+                    <Rectangle x:Name="Indicator"
+                               Width="4"
+                               HorizontalAlignment="Left"
+                               Fill="{Binding NavButtonCheckedIndicatorBrush, ElementName=ThisPage}"
+                               Visibility="Collapsed" />
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="DefaultNavCommandButtonControlTemplate"
+                             TargetType="Button">
+                <Grid x:Name="RootGrid"
+                      Width="{Binding PaneWidth, ElementName=ThisPage}"
+                      Background="Transparent">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="PointerOver">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
+                                </VisualState.Setters>
+                                <Storyboard>
+                                    <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
+                                </Storyboard>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Target="ContentPresenter.Foreground"
+                                            Value="DimGray" />
+                                    <Setter Target="ContentPresenter.Background"
+                                            Value="Transparent" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                    <ContentPresenter x:Name="ContentPresenter"
+                                      Content="{Binding Content}" />
+                </Grid>
+            </ControlTemplate>
+
             <DataTemplate x:Name="NavButtonLiteralTemplate" x:DataType="local:HamburgerButtonInfo">
                 <ContentPresenter x:Name="ContentPresenter"
                                   Width="{Binding PaneWidth, ElementName=ThisPage, Mode=OneWay}"
@@ -113,86 +275,8 @@
                               Tapped="NavButton_Tapped"
                               ToolTipService.ToolTip="{Binding Path=(ToolTipService.ToolTip), Mode=OneWay}"
                               Unchecked="NavButton_Unchecked"
-                              Visibility="{Binding Visibility, Mode=OneWay}">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="RootGrid"
-                                  Width="{Binding PaneWidth, ElementName=ThisPage, Mode=OneWay}"
-                                  Background="Transparent">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Collapsed" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="PointerOver">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Collapsed" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Pressed">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Collapsed" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Checked">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Visible" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="CheckedPointerOver">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Visible" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="CheckedPressed">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Visible" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="CheckedDisabled">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
-                                                <Setter Target="Indicator.Visibility" Value="Visible" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Disabled">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="DimGray" />
-                                                <Setter Target="ContentPresenter.Background" Value="Transparent" />
-                                                <Setter Target="Indicator.Visibility" Value="Collapsed" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                        <VisualState x:Name="Indeterminate" />
-                                        <VisualState x:Name="IndeterminatePointerOver" />
-                                        <VisualState x:Name="IndeterminatePressed" />
-                                        <VisualState x:Name="IndeterminateDisabled" />
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <ContentPresenter x:Name="ContentPresenter" Content="{Binding Content, Mode=OneWay}" />
-                                <Rectangle x:Name="Indicator"
-                                           Width="4"
-                                           HorizontalAlignment="Left"
-                                           Fill="{Binding NavButtonCheckedIndicatorBrush, ElementName=ThisPage}" />
-                                <Rectangle x:Name="DisableInteraction" Fill="Transparent" />
-                            </Grid>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
+                              Visibility="{Binding Visibility, Mode=OneWay}"
+                              Template="{Binding NavToggleButtonControlTemplate, ElementName=ThisPage}" />
             </DataTemplate>
 
             <DataTemplate x:Name="NavCommandButtonTemplate" x:DataType="local:HamburgerButtonInfo">
@@ -213,54 +297,8 @@
                         TabIndex="2"
                         Tapped="NavButton_Tapped"
                         ToolTipService.ToolTip="{Binding Path=(ToolTipService.ToolTip), Mode=OneWay}"
-                        Visibility="{Binding Visibility, Mode=OneWay}">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Grid x:Name="RootGrid"
-                                  Width="{Binding PaneWidth, ElementName=ThisPage, Mode=OneWay}"
-                                  Background="Transparent">
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup x:Name="CommonStates">
-                                        <VisualState x:Name="Normal">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
-                                            </VisualState.Setters>
-                                            <!--<Storyboard>
-                                                <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                        <VisualState x:Name="PointerOver">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
-                                            </VisualState.Setters>
-                                            <!--<Storyboard>
-                                                <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                        <VisualState x:Name="Pressed">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
-                                                <Setter Target="ContentPresenter.Background" Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
-                                            </VisualState.Setters>
-                                            <!--<Storyboard>
-                                                <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
-                                            </Storyboard>-->
-                                        </VisualState>
-                                        <VisualState x:Name="Disabled">
-                                            <VisualState.Setters>
-                                                <Setter Target="ContentPresenter.Foreground" Value="DimGray" />
-                                                <Setter Target="ContentPresenter.Background" Value="Transparent" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
-                                <ContentPresenter x:Name="ContentPresenter" Content="{Binding Content, Mode=OneWay}" />
-                            </Grid>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                        Visibility="{Binding Visibility, Mode=OneWay}"
+                        Template="{Binding NavCommandButtonControlTemplate, ElementName=ThisPage}" />
             </DataTemplate>
 
         </ResourceDictionary>
@@ -450,7 +488,7 @@
                 Command="{x:Bind HamburgerCommand, Mode=OneWay}"
                 Foreground="{x:Bind HamburgerForeground, FallbackValue=White, Mode=OneWay}"
                 RenderTransformOrigin="0.5,0.5"
-                Style="{StaticResource HamburgerButtonStyle}"
+                Style="{x:Bind HamburgerButtonStyle, Mode=OneWay}"
                 TabIndex="1"
                 Visibility="{x:Bind HamburgerButtonVisibility, Mode=OneWay}">
             <FontIcon FontSize="20" Glyph="&#xE700;" />

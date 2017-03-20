@@ -97,6 +97,20 @@ namespace Template10.Controls
             RefreshStyles(RequestedTheme);
             UpdatePaneMarginToShowHamburgerButton();
 
+            // apply default component styles
+            if (HamburgerButtonStyle == null)
+            {
+                HamburgerButtonStyle = (Style)Resources["DefaultHamburgerButtonStyle"];
+            }
+            if (NavToggleButtonControlTemplate == null)
+            {
+                NavToggleButtonControlTemplate = (ControlTemplate)Resources["DefaultNavToggleButtonControlTemplate"];
+            }
+            if (NavCommandButtonControlTemplate == null)
+            {
+                NavCommandButtonControlTemplate = (ControlTemplate)Resources["DefaultNavCommandButtonControlTemplate"];
+            }
+
             // Moved here from HamburgerMenu_LayoutUpdated because it was one-time event handler.
             // LayoutUpdated handler is not needed, Loaded is called after template applying anyway.
             UpdateVisualStates();

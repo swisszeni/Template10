@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Template10.Common;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 
 namespace Template10.Samples.SearchSample
 {
-    sealed partial class App : Template10.Common.BootStrapper
+    sealed partial class App : Common.BootStrapper
     {
         public App()
         {
