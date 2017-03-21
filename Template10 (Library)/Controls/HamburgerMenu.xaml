@@ -27,6 +27,18 @@
                 </Converters:ValueWhenConverter.Otherwise>
             </Converters:ValueWhenConverter>
 
+            <Converters:ValueWhenConverter x:Name="ReverseBooleanToVisibilityConverter">
+                <Converters:ValueWhenConverter.When>
+                    <x:Boolean>True</x:Boolean>
+                </Converters:ValueWhenConverter.When>
+                <Converters:ValueWhenConverter.Value>
+                    <Visibility>Collapsed</Visibility>
+                </Converters:ValueWhenConverter.Value>
+                <Converters:ValueWhenConverter.Otherwise>
+                    <Visibility>Visible</Visibility>
+                </Converters:ValueWhenConverter.Otherwise>
+            </Converters:ValueWhenConverter>
+
             <Style x:Key="DefaultHamburgerButtonStyle" TargetType="Button">
                 <Setter Property="TabIndex" Value="1" />
                 <Setter Property="Height" Value="48" />
@@ -364,6 +376,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <ScrollViewer Grid.Row="0"
@@ -422,18 +435,32 @@
                         </ItemsControl>
 
                     </ScrollViewer>
+                    
+                    <Rectangle x:Name="NavPaneDividerWide"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="2"
+                               Height="1"
+                               Fill="{Binding SecondarySeparator, ElementName=ThisPage, FallbackValue=White}"
+                               Margin="16,0,16,4"
+                               Visibility="{x:Bind Path=ShellSplitView.IsPaneOpen, Mode=OneWay}" />
+                    <Rectangle x:Name="NavPaneDividerNarrow"
+                               Grid.Row="1"
+                               Height="1"
+                               Fill="{Binding SecondarySeparator, ElementName=ThisPage, FallbackValue=White}"
+                               Margin="8,0,8,4"
+                               Width="32"
+                               HorizontalAlignment="Left"
+                               Visibility="{x:Bind Path=ShellSplitView.IsPaneOpen, Mode=OneWay, Converter={StaticResource ReverseBooleanToVisibilityConverter}}" />
 
                     <ItemsControl x:Name="SecondaryButtonContainer"
-                                  Grid.Row="1"
+                                  Grid.Row="2"
                                   IsTabStop="False"
                                   ItemsSource="{Binding SecondaryButtons, ElementName=ThisPage}"
                                   TabIndex="3">
 
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <StackPanel BorderBrush="{Binding SecondarySeparator, ElementName=ThisPage, FallbackValue=White}"
-                                            BorderThickness="0,1,0,0"
-                                            Loaded="SecondaryButtonStackPanel_Loaded" />
+                                <StackPanel Loaded="SecondaryButtonStackPanel_Loaded" />
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
 
