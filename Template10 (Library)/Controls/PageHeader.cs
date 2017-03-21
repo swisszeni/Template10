@@ -80,7 +80,7 @@ namespace Template10.Controls
                 var hamburgerMenu = ParentHamburgerMenu;
                 if (hamburgerMenu == null)
                 {
-                    spacer.Visibility = Visibility.Collapsed;
+                    this.Margin = new Thickness();
                 }
                 else
                 {
@@ -89,14 +89,13 @@ namespace Template10.Controls
                         case SplitViewDisplayMode.Inline:
                         case SplitViewDisplayMode.Overlay:
                             {
-                                var buttonVisible = hamburgerMenu.HamburgerButtonVisibility == Visibility.Visible;
-                                spacer.Visibility = buttonVisible ? Visibility.Visible : Visibility.Collapsed;
+                                this.Margin = hamburgerMenu.HamburgerButtonVisibility == Visibility.Visible ? new Thickness(48, 0, 0, 0) : new Thickness();
                             }
                             break;
                         case SplitViewDisplayMode.CompactOverlay:
                         case SplitViewDisplayMode.CompactInline:
                             {
-                                spacer.Visibility = Visibility.Collapsed;
+                                this.Margin = new Thickness();
                             }
                             break;
                     }
