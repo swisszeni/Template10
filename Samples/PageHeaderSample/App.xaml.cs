@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Template10.Common;
 using Windows.ApplicationModel.Activation;
 
 namespace Template10.Samples.PageHeaderSample

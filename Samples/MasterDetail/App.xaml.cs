@@ -3,6 +3,7 @@ using Windows.ApplicationModel.Activation;
 using Template10.Samples.MasterDetailSample.Views;
 using Windows.UI.Xaml;
 using Template10.Controls;
+using Template10.Common;
 
 namespace Template10.Samples.MasterDetailSample
 {

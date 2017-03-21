@@ -4,6 +4,7 @@ using Template10.Controls;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
+using Template10.Common;
 
 namespace Sample
 {
