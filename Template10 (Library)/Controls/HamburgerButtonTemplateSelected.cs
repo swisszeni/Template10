@@ -13,6 +13,11 @@ namespace Template10.Controls
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
             var info = item as HamburgerButtonInfo;
+            if (info.DataTemplate != null)
+            {
+                return info.DataTemplate;
+            }
+
             switch (info.ButtonType)
             {
                 case HamburgerButtonInfo.ButtonTypes.Toggle: return ToggleTemplate;

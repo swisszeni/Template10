@@ -197,6 +197,15 @@ namespace Template10.Controls
             DependencyProperty.Register(nameof(MaxWidth), typeof(double),
                 typeof(HamburgerButtonInfo), new PropertyMetadata(9999d));
 
+        public DataTemplate DataTemplate
+        {
+            get { return (DataTemplate)GetValue(DataTemplateProperty); }
+            set { SetValue(DataTemplateProperty, value); }
+        }
+        public static readonly DependencyProperty DataTemplateProperty =
+            DependencyProperty.Register(nameof(DataTemplate), typeof(DataTemplate),
+                typeof(HamburgerButtonInfo), new PropertyMetadata(null));
+
         public override string ToString() => string.Format($"IsChecked: {IsChecked} PageType: {PageType}, Parameter: {PageParameter}");
 
         #region Internal binding properties
