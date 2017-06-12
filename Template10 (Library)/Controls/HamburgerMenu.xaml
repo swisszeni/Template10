@@ -14,6 +14,95 @@
 
     <UserControl.Resources>
         <ResourceDictionary>
+            
+            <!--The Brushes for the Nav Buttons-->
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <!--Literal-->
+                    <SolidColorBrush x:Key="Template10NavLiteralButtonForeground"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="Template10NavLiteralButtonBackground"
+                                     Color="Transparent" />
+                    
+                    <!--Toggle-->
+                    <SolidColorBrush x:Key="Template10NavToggleButtonForeground"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonHoverForeground"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonHoverBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonPressedForeground"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonPressedBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedForeground"
+                                     Color="Black" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedIndicatorBrush"
+                                     Color="Black" />
+                    
+
+                    <!--Command-->
+                    <SolidColorBrush x:Key="Template10NavCommandButtonForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonHoverForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonHoverBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonPressedForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonPressedBackground"
+                                     Color="Transparent" />
+                    
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Default">
+                    <!--Literal-->
+                    <SolidColorBrush x:Key="Template10NavLiteralButtonForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavLiteralButtonBackground"
+                                     Color="Transparent" />
+
+                    <!--Toggle-->
+                    <SolidColorBrush x:Key="Template10NavToggleButtonForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonHoverForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonHoverBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonPressedForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonPressedBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavToggleButtonCheckedIndicatorBrush"
+                                     Color="White" />
+
+                    <!--Command-->
+                    <SolidColorBrush x:Key="Template10NavCommandButtonForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonHoverForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonHoverBackground"
+                                     Color="Transparent" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonPressedForeground"
+                                     Color="White" />
+                    <SolidColorBrush x:Key="Template10NavCommandButtonPressedBackground"
+                                     Color="Transparent" />
+                    
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
 
             <Converters:ValueWhenConverter x:Name="ReverseBooleanConverter">
                 <Converters:ValueWhenConverter.When>
@@ -102,9 +191,9 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -113,9 +202,9 @@
                             <VisualState x:Name="PointerOver">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonHoverForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonHoverBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -124,9 +213,9 @@
                             <VisualState x:Name="Pressed">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonPressedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonPressedBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -135,9 +224,9 @@
                             <VisualState x:Name="Checked">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedBackground}" />
                                     <Setter Target="Indicator.Visibility"
                                             Value="Visible" />
                                 </VisualState.Setters>
@@ -148,9 +237,9 @@
                             <VisualState x:Name="CheckedPointerOver">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedBackground}" />
                                     <Setter Target="Indicator.Visibility"
                                             Value="Visible" />
                                 </VisualState.Setters>
@@ -158,9 +247,9 @@
                             <VisualState x:Name="CheckedPressed">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedBackground}" />
                                     <Setter Target="Indicator.Visibility"
                                             Value="Visible" />
                                 </VisualState.Setters>
@@ -168,9 +257,9 @@
                             <VisualState x:Name="CheckedDisabled">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonCheckedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonCheckedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavToggleButtonCheckedBackground}" />
                                     <Setter Target="Indicator.Visibility"
                                             Value="Visible" />
                                 </VisualState.Setters>
@@ -194,7 +283,7 @@
                     <Rectangle x:Name="Indicator"
                                Width="4"
                                HorizontalAlignment="Left"
-                               Fill="{Binding NavButtonCheckedIndicatorBrush, ElementName=ThisPage}"
+                               Fill="{ThemeResource Template10NavToggleButtonCheckedIndicatorBrush}"
                                Visibility="Collapsed" />
                 </Grid>
             </ControlTemplate>
@@ -209,9 +298,9 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -220,9 +309,9 @@
                             <VisualState x:Name="PointerOver">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonHoverForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonHoverForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonHoverBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonHoverBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerUpThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -231,9 +320,9 @@
                             <VisualState x:Name="Pressed">
                                 <VisualState.Setters>
                                     <Setter Target="ContentPresenter.Foreground"
-                                            Value="{Binding NavButtonPressedForeground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonPressedForeground}" />
                                     <Setter Target="ContentPresenter.Background"
-                                            Value="{Binding NavButtonPressedBackground, ElementName=ThisPage}" />
+                                            Value="{ThemeResource Template10NavCommandButtonPressedBackground}" />
                                 </VisualState.Setters>
                                 <Storyboard>
                                     <PointerDownThemeAnimation Storyboard.TargetName="RootGrid" />
@@ -260,12 +349,13 @@
                                   MinWidth="48"
                                   MaxWidth="{Binding MaxWidth, Mode=OneWay}"
                                   AutomationProperties.Name="{Binding (AutomationProperties.Name), Mode=OneWay}"
-                                  Background="{Binding NavButtonBackground, ElementName=ThisPage, FallbackValue=DarkRed, Mode=OneWay}"
+                                  Background="{ThemeResource Template10NavLiteralButtonBackground}"
                                   Content="{Binding Content, Mode=OneWay}"
-                                  Foreground="{Binding NavButtonForeground, ElementName=ThisPage, FallbackValue=White, Mode=OneWay}"
+                                  Foreground="{ThemeResource Template10NavLiteralButtonForeground}"
                                   Loaded="NavButton_Loaded"
                                   ToolTipService.ToolTip="{Binding Path=(ToolTipService.ToolTip), Mode=OneWay}"
-                                  Visibility="{Binding Visibility, Mode=OneWay}" />
+                                  Visibility="{Binding Visibility, Mode=OneWay}"
+                                  Resources="{Binding Resources, Mode=OneTime}" />
             </DataTemplate>
 
             <DataTemplate x:Name="NavToggleButtonTemplate" x:DataType="local:HamburgerButtonInfo">
@@ -288,7 +378,8 @@
                               ToolTipService.ToolTip="{Binding Path=(ToolTipService.ToolTip), Mode=OneWay}"
                               Unchecked="NavButton_Unchecked"
                               Visibility="{Binding Visibility, Mode=OneWay}"
-                              Template="{Binding NavToggleButtonControlTemplate, ElementName=ThisPage}" />
+                              Template="{Binding NavToggleButtonControlTemplate, ElementName=ThisPage}"
+                              Resources="{Binding Resources, Mode=OneTime}" />
             </DataTemplate>
 
             <DataTemplate x:Name="NavCommandButtonTemplate" x:DataType="local:HamburgerButtonInfo">
@@ -310,7 +401,8 @@
                         Tapped="NavButton_Tapped"
                         ToolTipService.ToolTip="{Binding Path=(ToolTipService.ToolTip), Mode=OneWay}"
                         Visibility="{Binding Visibility, Mode=OneWay}"
-                        Template="{Binding NavCommandButtonControlTemplate, ElementName=ThisPage}" />
+                        Template="{Binding NavCommandButtonControlTemplate, ElementName=ThisPage}"
+                        Resources="{Binding Resources, Mode=OneTime}" />
             </DataTemplate>
 
         </ResourceDictionary>

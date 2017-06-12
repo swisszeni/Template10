@@ -197,13 +197,13 @@ namespace Template10.Controls
             DependencyProperty.Register(nameof(MaxWidth), typeof(double),
                 typeof(HamburgerButtonInfo), new PropertyMetadata(9999d));
 
-        public DataTemplate DataTemplate
+        public ResourceDictionary Resources
         {
-            get { return (DataTemplate)GetValue(DataTemplateProperty); }
-            set { SetValue(DataTemplateProperty, value); }
+            get { return (ResourceDictionary)GetValue(ResourcesProperty); }
+            set { SetValue(ResourcesProperty, value); }
         }
-        public static readonly DependencyProperty DataTemplateProperty =
-            DependencyProperty.Register(nameof(DataTemplate), typeof(DataTemplate),
+        public static readonly DependencyProperty ResourcesProperty =
+            DependencyProperty.Register(nameof(ResourceDictionary), typeof(ResourceDictionary),
                 typeof(HamburgerButtonInfo), new PropertyMetadata(null));
 
         public override string ToString() => string.Format($"IsChecked: {IsChecked} PageType: {PageType}, Parameter: {PageParameter}");
