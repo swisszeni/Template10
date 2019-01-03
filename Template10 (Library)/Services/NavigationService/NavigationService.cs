@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Template10.Common;
+using Template10.Services.LoggingService;
 using Template10.Services.SerializationService;
 using Template10.Services.ViewService;
 using Template10.Utils;

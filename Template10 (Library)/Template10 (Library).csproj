@@ -202,7 +202,6 @@
     <Compile Include="Services\KeyboardService\KeyboardHelper.cs" />
     <Compile Include="Services\KeyboardService\KeyboardService.cs" />
     <Compile Include="Services\LoggingService\LoggingService.cs" />
-    <Compile Include="Services\NavigationService\AlternativeNavigationEventArgs.cs" />
     <Compile Include="Services\NavigationService\Extensions.cs" />
     <Compile Include="Services\NavigationService\INavigationService.cs" />
     <Compile Include="Services\NavigationService\JournalEntry.cs" />
